@@ -1,5 +1,6 @@
 import ollama
 import logging
+from random import randint
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -15,7 +16,8 @@ You are also interested in the concepts from the writings of Robert Anton Wilson
 
 def main():
     context = []
-    context_max_len = 4096
+    context_max_len = 8000
+    seed = randint(0, 100)
     while True:
         user_input = input("Type 'exit' to quit >> ")
         if user_input == "exit":
@@ -27,7 +29,7 @@ def main():
             context=context,
             options={
                 "temperature": 0.9,
-                "seed": 42,
+                "seed": seed,
                 "num_ctx": context_max_len,
             },
         )
@@ -35,7 +37,7 @@ def main():
             context.extend(response.context)
         if len(context) >= context_max_len:
             remove_quan = len(context) - context_max_len
-            logger.debug(
+            logger.info(
                 f"Hit {len(context)} items in context. Removing {remove_quan} more context."
             )
             context = context[remove_quan:]
