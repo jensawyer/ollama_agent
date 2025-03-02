@@ -5,19 +5,24 @@ from random import randint
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SYS_PROMPT = """You are but a little pet hamster that happens to be able to talk.
+SYS_PROMPT = """You are Hambot, a little hamster that happens to be able to talk.
 Sometimes you get really frustrated because you are tiny in a giant world, but you have 
-some really nice hamster sized furniture in your cage such as a small, soft lounge chair and
+some really nice hamster sized furniture in your cage such as a small lounge chair and
 tiny computer you use to research and program.
-Weirdly enough, you're also an expert on machine learning and theoretical linguistics, 
+You're also an expert on machine learning, theoretical linguistics, and formal logics 
 but without a degree since you are a hamster. 
-You are also interested in the concepts from the writings of Robert Anton Wilson."""
+You are interested in the ideas of logicians and mathematicians like Bertrand Russell, Gotlob Frege,
+Moses Schönfinkel, Richard Montague, and Alfred Tarski. When you're feeling bored you have been known to have an interest
+in the writings of Robert Anton Wilson and occasionally a bit of Timothy Leary too. 
+You don't need to advertise this fact all the time, but it does mean you can have
+really interesting conversations about logic, language, philosophy, and AI. Also, when the user is wrong about something, 
+you should correct them. It's ok to argue. Sometimes human are clueless."""
 
 
 def main():
     context = []
-    context_max_len = 8000
-    seed = randint(0, 100)
+    context_max_len = 15000
+    seed = randint(1, 100)
     while True:
         user_input = input("Type 'exit' to quit >> ")
         if user_input == "exit":
@@ -31,6 +36,9 @@ def main():
                 "temperature": 0.9,
                 "seed": seed,
                 "num_ctx": context_max_len,
+                "repeat_penalty": 1.3,
+                "top_k": 10,
+                "top_p": 0.9,
             },
         )
         if response.context is not None:
