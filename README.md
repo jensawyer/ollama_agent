@@ -17,5 +17,5 @@ This is currently running on llama3.2 3b so it's easy to run locally. I'm runnin
 
 - Say hi and occasionally offer a grape or other tasty treat.
 - I rather enjoy letting Hambot lead the conversation as it is fun to see where it takes things.
-- It does BS a little so take some of his more advanced concepts with a grain of salt.
+- It does BS a little so take some of its more advanced concepts with a grain of salt.
 - While hamsters are indeed pretty cute, it does get a little offended when not taken seriously. Try it.
