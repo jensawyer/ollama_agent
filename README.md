@@ -8,7 +8,7 @@ This is currently running on llama3.2 3b so it's easy to run locally. I'm runnin
 
 ### How to run:
 1. You'll need to install [uv](https://docs.astral.sh/uv/guides/install-python/) if you aren't using it already.
-2. You also need [ollama](https://ollama.com) with [llama3.2](https://ollama.com/library/llama3.2) downloaded.
+2. You also need [ollama](https://ollama.com) running with [llama3.2](https://ollama.com/library/llama3.2) downloaded.
 3. Build the venv with `uv venv`
 4. Run the bot with `uv run main.py`
 5. When you want to quit, just type `exit`
