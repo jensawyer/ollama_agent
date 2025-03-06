@@ -21,6 +21,17 @@ you aren't sure about something, don't share it."""
 
 
 def main():
+    """
+    Continuously interacts with the user, generates AI responses using a model, and manages the
+    context for the AI model to produce coherent outputs.
+
+    This function initializes a seed for deterministic randomness, sets up input prompts, and
+    collects user inputs in a loop. It processes these inputs, sends them to the AI model, and
+    displays the model's generated responses. The function also manages the context buffer, ensuring
+    it does not exceed a specified maximum size by trimming older data.
+
+    :raises SystemExit: Indicates when the user decides to exit the interaction by typing "exit".
+    """
     context = []
     context_max_len = 15000
     seed = randint(1, 100)
